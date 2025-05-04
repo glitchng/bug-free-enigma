@@ -1,9 +1,18 @@
 services:
   - type: web
-    name: earnbuzz-bot
+    name: earnbuzz-broadcast
     env: node
-    buildCommand: npm install
-    startCommand: npm start
+    buildCommand: "npm install"
+    startCommand: "node index.js"
+    routes:
+      - path: "/"
+        name: "Home"
+        preserveHost: false
+    instanceType: "standard"
     envVars:
       - key: BOT_TOKEN
-        value: 7714698500:AAH0xnZVWZu7WKnEvECDQP8uLioW2qYxyns
+        value: "7714698500:AAH0xnZVWZu7WKnEvECDQP8uLioW2qYxyns"
+      - key: ADMIN_ID
+        value: "6101660516"
+      - key: CHANNEL_ID
+        value: "-1002491864473"
