@@ -1,9 +1,9 @@
 services:
   - type: web
-    name: telegram-review-bot
+    name: earnbuzz-bot
     env: node
-    buildCommand: "npm install"
-    startCommand: "npm start"
+    buildCommand: npm install
+    startCommand: npm start
     envVars:
       - key: BOT_TOKEN
-        sync: false
+        value: 7714698500:AAH0xnZVWZu7WKnEvECDQP8uLioW2qYxyns
