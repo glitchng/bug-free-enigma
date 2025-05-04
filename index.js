@@ -1,8 +1,6 @@
 const http = require('http');
 const express = require('express');
 const bodyParser = require('body-parser');
-const bcrypt = require('bcryptjs');
-const session = require('express-session');
 const TelegramBot = require('node-telegram-bot-api');
 
 // === CONFIG ===
@@ -15,85 +13,13 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('public'));
 
-// === Session Middleware ===
-app.use(session({
-  secret: 'your-secret-key', 
-  resave: false, 
-  saveUninitialized: true,
-}));
-
-// === Credentials (Username and Hashed Password) ===
-const adminUsername = "earnbuzz";
-const adminPasswordHash = "$2a$10$O7uA3rg2zYwW0pZgk9mjuehSxFfdkgrU5jLQje1n7fWcOUtIHtDqG";  // Hashed version of "pass"
-
-// === Login Check ===
-app.get('/login', (req, res) => {
-  res.send(`
-    <html>
-      <head><title>Login</title><link href="/styles.css" rel="stylesheet"></head>
-      <body class="bg-gray-100 flex justify-center items-center h-screen">
-        <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-xs">
-          <h1 class="text-3xl font-bold mb-6 text-center">Login to Dashboard</h1>
-          <form method="POST" action="/login" class="space-y-4">
-            <div>
-              <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
-              <input type="text" id="username" name="username" class="w-full px-4 py-2 border rounded-md shadow-sm" required>
-            </div>
-            <div>
-              <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-              <input type="password" id="password" name="password" class="w-full px-4 py-2 border rounded-md shadow-sm" required>
-            </div>
-            <div>
-              <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Login</button>
-            </div>
-          </form>
-        </div>
-      </body>
-    </html>
-  `);
-});
-
-app.post('/login', (req, res) => {
-  const { username, password } = req.body;
-
-  // Check if the username and password match
-  if (username === adminUsername && bcrypt.compareSync(password, adminPasswordHash)) {
-    req.session.loggedIn = true;
-    return res.redirect('/');
-  }
-
-  res.send(`
-    <html>
-      <head><title>Login</title><link href="/styles.css" rel="stylesheet"></head>
-      <body class="bg-gray-100 flex justify-center items-center h-screen">
-        <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-xs">
-          <h1 class="text-3xl font-bold mb-6 text-center">Login Failed</h1>
-          <p class="text-red-600 text-center">Invalid credentials. Please try again.</p>
-          <form method="POST" action="/login" class="space-y-4 mt-4">
-            <div>
-              <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
-              <input type="text" id="username" name="username" class="w-full px-4 py-2 border rounded-md shadow-sm" required>
-            </div>
-            <div>
-              <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-              <input type="password" id="password" name="password" class="w-full px-4 py-2 border rounded-md shadow-sm" required>
-            </div>
-            <div>
-              <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Login</button>
-            </div>
-          </form>
-        </div>
-      </body>
-    </html>
-  `);
-});
-
-// === Broadcast Control ===
+// === Broadcasting State ===
 let broadcasting = false;
 let broadcastInterval = null;
 let messageCount = 0;
 const logs = [];
 
+// === Review Messages ===
 const reviews = [
   "🌟 This app is amazing! I’ve earned so much in just a week.",
   "💯 Legit and super easy to use. Highly recommend!",
@@ -104,17 +30,25 @@ const reviews = [
   "💸 Earnings drop daily like clockwork. Love it!",
   "👌 Simple UI, fast payments, no stress.",
   "🙌 Got paid without any issues. Real deal!",
-  "🤑 Was skeptical at first but it’s real. Highly recommended!"
+  "🤑 Was skeptical at first but it’s real. Highly recommended!",
+  "💥 Earnbuzz changed my life! I'm earning more than I expected.",
+  "📝 The referral system is genius. I've already invited a few friends!",
+  "💰 Fast withdrawals and no problems with my account. Definitely a win!",
+  "🚀 Super easy to get started and the earnings are consistent.",
+  "🎉 I’ve been using it for a month now and everything is going smoothly.",
+  "📲 This is the app I’ve been looking for. It’s simple and effective.",
+  "🙌 Love how easy it is to track my earnings and withdrawals!",
+  "⚡ Fast and reliable payments every time. Couldn’t ask for more.",
+  "⭐ The daily faucet is a great way to build up small earnings over time.",
+  "🖥️ Smooth interface and quick payments make Earnbuzz a top choice."
 ];
 
-// === Review Messages ===
+const firstNames = [ "Chinedu", "Aisha", "Tunde", "Ngozi", "Emeka", "Fatima", "Ibrahim", "Kelechi" ];
+const lastNames = [ "Okoro", "Bello", "Oladipo", "Nwankwo", "Eze", "Musa", "Lawal", "Umeh" ];
+
 function getRandomNigerianName() {
-  const firstNames = ["Chinedu", "Aisha", "Tunde", "Ngozi", "Emeka"];
-  const lastNames = ["Okoro", "Bello", "Oladipo", "Nwankwo", "Eze"];
-  
   const first = firstNames[Math.floor(Math.random() * firstNames.length)];
   const last = lastNames[Math.floor(Math.random() * lastNames.length)];
-  
   return `${first} ${last}`;
 }
 
@@ -150,29 +84,44 @@ function stopBroadcasting() {
   }
 }
 
+// === Telegram Bot Admin Commands ===
+bot.onText(/\/start/, (msg) => {
+  if (msg.chat.id == ADMIN_ID) {
+    bot.sendMessage(msg.chat.id, "✅ Review broadcasting started.");
+    startBroadcasting();
+  } else {
+    bot.sendMessage(msg.chat.id, "❌ You are not authorized.");
+  }
+});
+
+bot.onText(/\/stop/, (msg) => {
+  if (msg.chat.id == ADMIN_ID) {
+    bot.sendMessage(msg.chat.id, "🛑 Review broadcasting stopped.");
+    stopBroadcasting();
+  } else {
+    bot.sendMessage(msg.chat.id, "❌ You are not authorized.");
+  }
+});
+
 // === Web Dashboard ===
 app.get('/', (req, res) => {
-  if (!req.session.loggedIn) {
-    return res.redirect('/login');
-  }
-
   res.send(`
     <html>
-      <head><title>Earnbuzz Broadcast Dashboard</title><link href="/styles.css" rel="stylesheet"></head>
-      <body class="bg-gray-100 flex justify-center items-center h-screen">
-        <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-3xl">
-          <h1 class="text-3xl font-bold mb-6 text-center">📡 Earnbuzz Review Broadcaster</h1>
-          <p class="text-xl mb-4">Status: <b class="${broadcasting ? 'text-green-500' : 'text-red-500'}">${broadcasting ? '🟢 Running' : '🔴 Stopped'}</b></p>
-          <p class="mb-4">Messages sent: ${messageCount}</p>
-          <form method="POST" action="/start" class="mb-2">
-            <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">▶️ Start Broadcasting</button>
+      <head><title>Earnbuzz Broadcast Dashboard</title></head>
+      <body class="bg-gray-100 text-gray-900 font-sans p-6">
+        <h1 class="text-3xl font-bold mb-4">📡 Earnbuzz Review Broadcaster</h1>
+        <p class="mb-2">Status: <b class="${broadcasting ? 'text-green-600' : 'text-red-600'}">${broadcasting ? '🟢 Running' : '🔴 Stopped'}</b></p>
+        <p class="mb-4">Messages sent: ${messageCount}</p>
+        <div class="space-x-4">
+          <form method="POST" action="/start" class="inline-block">
+            <button type="submit" class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600">▶️ Start Broadcasting</button>
           </form>
-          <form method="POST" action="/stop">
-            <button type="submit" class="w-full bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600">⛔ Stop Broadcasting</button>
+          <form method="POST" action="/stop" class="inline-block">
+            <button type="submit" class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600">⛔ Stop Broadcasting</button>
           </form>
-          <h3 class="mt-6 font-semibold">Recent Logs</h3>
-          <pre class="bg-gray-800 text-white p-4 rounded-md max-h-64 overflow-y-scroll">${logs.join('\n')}</pre>
         </div>
+        <h3 class="mt-6 text-2xl">Recent Logs</h3>
+        <pre class="bg-gray-800 text-white p-4 rounded-md mt-2 max-h-96 overflow-y-auto">${logs.join('\n')}</pre>
       </body>
     </html>
   `);
