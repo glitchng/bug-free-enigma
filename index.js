@@ -5,7 +5,7 @@ const TelegramBot = require('node-telegram-bot-api');
 
 // === CONFIG ===
 const BOT_TOKEN = process.env.BOT_TOKEN;
-const CHANNEL_ID = '-1002353520070'; // Replace with your channel ID
+const CHANNEL_ID = '-1002491864473'; // Replace with your channel ID
 const ADMIN_ID = 6101660516;         // Replace with your Telegram ID
 
 const bot = new TelegramBot(BOT_TOKEN, { polling: true });
