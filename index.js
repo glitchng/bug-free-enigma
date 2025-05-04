@@ -3,21 +3,22 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const TelegramBot = require('node-telegram-bot-api');
 
-// === CONFIGURATION ===
+// === CONFIG ===
 const BOT_TOKEN = process.env.BOT_TOKEN;
 const CHANNEL_ID = '-1002353520070'; // Replace with your channel ID
 const ADMIN_ID = 6101660516;         // Replace with your Telegram ID
 
 const bot = new TelegramBot(BOT_TOKEN, { polling: true });
 const app = express();
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static('public'));
 
 let broadcasting = false;
 let broadcastInterval = null;
 let messageCount = 0;
-let logs = [];
+const logs = [];
 
-// === Reviews ===
+// === Review Messages ===
 const reviews = [
   "🌟 This app is amazing! I’ve earned so much in just a week.",
   "💯 Legit and super easy to use. Highly recommend!",
@@ -41,9 +42,8 @@ const reviews = [
   "🖥️ Smooth interface and quick payments make Earnbuzz a top choice."
 ];
 
-// === Nigerian Name Generator ===
-const firstNames = [ "Chinedu", "Aisha", "Tunde", "Ngozi", "Emeka", "Fatima", "Ibrahim", "Kelechi", "Seyi", "Adaobi", "Bola", "Obinna", "Zainab", "Yusuf", "Amaka", "David", "Grace", "Uche", "Tope", "Nneka", "Samuel", "Maryam", "Gbenga", "Rashida", "Kingsley", "Temitope", "Hadiza", "John", "Blessing", "Peter", "Linda", "Ahmed", "Funmi", "Rita", "Abdul", "Chika", "Paul", "Victoria", "Halima", "Ifeanyi", "Sarah", "Joseph", "Joy", "Musa", "Bukky", "Stephen", "Aminat", "Henry", "Femi", "Micheal", "Modupe", "Yemisi", "Titi", "Chijioke", "Oluwaseun", "Durojaiye", "Fatimah", "Ademola", "Ifeoluwa", "Hassan", "Aderemi", "Idris", "Ekong", "Ivy", "Uko", "Eyo", "Abasiama", "Mfon", "Mbakara", "Nkechi", "Idorenyin", "Martha", "Ita", "Akpan", "Essien", "Obong", "Ikot", "Inyang", "Ntia", "Akpabio", "Etim", "Inyene", "Ndiana", "Udoh", "Akanimoh", "Udo", "Ukpong" ];
-const lastNames = [ "Okoro", "Bello", "Oladipo", "Nwankwo", "Eze", "Musa", "Lawal", "Umeh", "Bakare", "Okafor", "Adeyemi", "Mohammed", "Onyeka", "Ibrahim", "Ogunleye", "Balogun", "Chukwu", "Usman", "Abiola", "Okonkwo", "Aliyu", "Ogundele", "Danladi", "Ogbonna", "Salami", "Olumide", "Obi", "Akinwale", "Suleiman", "Ekwueme", "Ayodele", "Garba", "Nwachukwu", "Anyanwu", "Yahaya", "Idowu", "Ezra", "Mustapha", "Iroko", "Ajayi", "Adebayo", "Ogundipe", "Nuhu", "Bamgbose", "Ikenna", "Osagie", "Akinyemi", "Chisom", "Oladele", "Adeleke", "Fashola", "Taiwo", "Tiwatope", "Onyebuchi", "Ikechukwu", "Nnaji", "Ogunbiyi", "Sule", "Muhammad", "Alabi", "Oloyede", "Etim", "Bassey", "Otu", "Akpabio", "Ubong" ];
+const firstNames = [ "Chinedu", "Aisha", "Tunde", "Ngozi", "Emeka", "Fatima", "Ibrahim", "Kelechi" ];
+const lastNames = [ "Okoro", "Bello", "Oladipo", "Nwankwo", "Eze", "Musa", "Lawal", "Umeh" ];
 
 function getRandomNigerianName() {
   const first = firstNames[Math.floor(Math.random() * firstNames.length)];
@@ -51,20 +51,17 @@ function getRandomNigerianName() {
   return `${first} ${last}`;
 }
 
-// === Message Sender ===
 function sendReviewMessage() {
   const review = reviews[Math.floor(Math.random() * reviews.length)];
   const name = getRandomNigerianName();
   const message = `${review}\n—from *${name}*`;
 
   bot.sendMessage(CHANNEL_ID, message, { parse_mode: "Markdown" });
-
-  const timestamp = new Date().toLocaleString();
-  logs.unshift(`[${timestamp}] ${message}`);
-  logs = logs.slice(0, 10); // Keep only last 10
+  messageCount++;
+  logs.unshift(`[${new Date().toLocaleTimeString()}] Sent: ${message}`);
+  if (logs.length > 20) logs.pop(); // Keep log short
 }
 
-// === Broadcast Control ===
 function startBroadcasting() {
   if (broadcasting) return;
   broadcasting = true;
@@ -75,7 +72,6 @@ function startBroadcasting() {
       return;
     }
     sendReviewMessage();
-    messageCount++;
   }, 60000); // 1 minute
 }
 
@@ -87,7 +83,7 @@ function stopBroadcasting() {
   }
 }
 
-// === Telegram Bot Commands ===
+// === Telegram Bot Admin Commands ===
 bot.onText(/\/start/, (msg) => {
   if (msg.chat.id == ADMIN_ID) {
     bot.sendMessage(msg.chat.id, "✅ Review broadcasting started.");
@@ -110,24 +106,19 @@ bot.onText(/\/stop/, (msg) => {
 app.get('/', (req, res) => {
   res.send(`
     <html>
-      <head><title>Broadcast Control</title></head>
-      <body style="font-family:sans-serif; text-align:center; margin-top:40px;">
-        <h2>📢 Broadcast Control Panel</h2>
+      <head><title>Earnbuzz Broadcast Dashboard</title></head>
+      <body style="font-family:sans-serif;padding:20px;">
+        <h1>📡 Earnbuzz Review Broadcaster</h1>
+        <p>Status: <b>${broadcasting ? '🟢 Running' : '🔴 Stopped'}</b></p>
+        <p>Messages sent: ${messageCount}</p>
         <form method="POST" action="/start">
-          <button type="submit" style="padding:10px 20px;">Start Broadcasting</button>
+          <button type="submit">▶️ Start Broadcasting</button>
         </form>
-        <br />
-        <form method="POST" action="/stop">
-          <button type="submit" style="padding:10px 20px;">Stop Broadcasting</button>
+        <form method="POST" action="/stop" style="margin-top:10px;">
+          <button type="submit">⛔ Stop Broadcasting</button>
         </form>
-        <p>Status: <strong>${broadcasting ? 'Running' : 'Stopped'}</strong></p>
-        <p>Messages Sent Today: <strong>${messageCount}</strong></p>
-        <h3>📝 Last 10 Messages</h3>
-        <div style="max-width:700px; margin:0 auto; text-align:left; font-size:14px;">
-          <ul>
-            ${logs.map(log => `<li>${log}</li>`).join('')}
-          </ul>
-        </div>
+        <h3>Recent Logs</h3>
+        <pre>${logs.join('\n')}</pre>
       </body>
     </html>
   `);
@@ -143,8 +134,8 @@ app.post('/stop', (req, res) => {
   res.redirect('/');
 });
 
-// === Web Server ===
+// === Start Server ===
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Web dashboard running on port ${PORT}`);
+http.createServer(app).listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
