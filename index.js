@@ -13,7 +13,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('public'));
 
-// === Broadcasting State ===
+// === Variables ===
 let broadcasting = false;
 let broadcastInterval = null;
 let messageCount = 0;
@@ -106,34 +106,34 @@ bot.onText(/\/stop/, (msg) => {
 // === Web Dashboard ===
 app.get('/', (req, res) => {
   res.send(`
-    <html>
+    <html lang="en" class="dark">
       <head>
-        <title>Earnbuzz Broadcast Dashboard</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Earnbuzz Review Broadcaster</title>
         <script src="https://cdn.tailwindcss.com"></script>
       </head>
-      <body id="body" class="bg-gray-900 text-gray-200 font-sans p-6 transition-all">
-        <div class="max-w-4xl mx-auto bg-gray-800 p-6 rounded-lg shadow-lg">
-          <!-- Logo -->
-          <div class="flex justify-center mb-8">
-            <img src="/earn.jpg" alt="Earnbuzz Logo" class="w-24 h-24 object-cover rounded-full" />
-          </div>
-
-          <h1 class="text-4xl font-extrabold text-center text-indigo-600 mb-8">📡 Earnbuzz Review Broadcaster</h1>
-          <div class="text-center mb-6">
-            <p class="text-lg ${broadcasting ? 'text-green-500' : 'text-red-500'}">Status: <b class="font-semibold">${broadcasting ? '🟢 Running' : '🔴 Stopped'}</b></p>
-            <p class="mb-4 text-xl">Messages Sent: <span class="text-2xl font-bold text-gray-100">${messageCount}</span></p>
-            <div class="space-x-4">
-              <form method="POST" action="/start" class="inline-block">
-                <button type="submit" class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 transition-all">▶️ Start Broadcasting</button>
-              </form>
-              <form method="POST" action="/stop" class="inline-block">
-                <button type="submit" class="px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 transition-all">⛔ Stop Broadcasting</button>
-              </form>
-            </div>
+      <body class="bg-gray-900 text-white">
+        <div class="container mx-auto px-4 py-8">
+          <div class="flex items-center mb-6">
+            <img src="https://raw.githubusercontent.com/glitchng/bug-free-enigma/main/earn.jpg" alt="Earnbuzz Logo" class="w-24 h-24 object-cover rounded-full mr-4" />
+            <h1 class="text-4xl font-bold">Earnbuzz Review Broadcaster</h1>
           </div>
           
-          <h3 class="text-2xl font-bold mb-2 text-center">Recent Logs</h3>
-          <pre class="bg-gray-800 text-white p-4 rounded-md mt-4 max-h-96 overflow-y-auto">${logs.join('\n')}</pre>
+          <p>Status: <b>${broadcasting ? '🟢 Running' : '🔴 Stopped'}</b></p>
+          <p>Messages sent: ${messageCount}</p>
+          
+          <div class="mt-6">
+            <form method="POST" action="/start">
+              <button type="submit" class="bg-green-500 text-white p-3 rounded-lg shadow-md hover:bg-green-600">▶️ Start Broadcasting</button>
+            </form>
+            <form method="POST" action="/stop" class="mt-4">
+              <button type="submit" class="bg-red-500 text-white p-3 rounded-lg shadow-md hover:bg-red-600">⛔ Stop Broadcasting</button>
+            </form>
+          </div>
+          
+          <h3 class="mt-8 text-xl">Recent Logs</h3>
+          <pre class="bg-gray-800 p-4 rounded-lg mt-2">${logs.join('\n')}</pre>
         </div>
       </body>
     </html>
