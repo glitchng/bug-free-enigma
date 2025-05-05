@@ -40,10 +40,67 @@ const reviews = [
   "🙌 I started using Earnbuzz just to test it out, but now it’s a regular part of my income. I don’t have to do anything complicated — just log in, do a few things, and I get rewarded. What makes it stand out is the consistency. It doesn’t suddenly stop working or make you jump through hoops to get your money. I’ve referred a few friends too, and they’re all seeing results. Whether you’re a student, a parent, or just someone trying to make ends meet, I think Earnbuzz is genuinely worth your time.",
   
   "🤑 I’m not the type to write reviews, but Earnbuzz honestly deserves it. I’ve been burned by too many fake platforms in the past, so when I found something that actually pays, I had to speak up. It’s helped me earn on the side without investing anything upfront. The user interface is super smooth, and I’ve never had a delay with withdrawals. I even reached out to support once, and they were polite and quick to resolve my issue. That says a lot. This platform has genuinely helped me out."
-];
+  "🌟 This app is amazing! I’ve earned so much in just a week.",
+  "💯 Legit and super easy to use. Highly recommend!",
+  "🔥 Just got my first payment today. Thanks guys!",
+  "👏 I’ve referred my friends and we’re all enjoying the rewards.",
+  "✅ Everything works smoothly. Best app I’ve used this year.",
+  "😎 Great support and instant withdrawals. Keep it up!",
+  "💸 Earnings drop daily like clockwork. Love it!",
+  "👌 Simple UI, fast payments, no stress.",
+  "🙌 Got paid without any issues. Real deal!",
+  "🤑 Was skeptical at first but it’s real. Highly recommended!",
+  "💥 Earnbuzz changed my life! I'm earning more than I expected.",
+  "📝 The referral system is genius. I've already invited a few friends!",
+  "💰 Fast withdrawals and no problems with my account. Definitely a win!",
+  "🚀 Super easy to get started and the earnings are consistent.",
+  "🎉 I’ve been using it for a month now and everything is going smoothly.",
+  "📲 This is the app I’ve been looking for. It’s simple and effective.",
+  "🙌 Love how easy it is to track my earnings and withdrawals!",
+  "⚡ Fast and reliable payments every time. Couldn’t ask for more.",
+  "⭐ The daily faucet is a great way to build up small earnings over time.",
+  "🖥️ Smooth interface and quick payments make Earnbuzz a top choice.",
+  "🌟 I was hesitant at first, but after using Earnbuzz for a few weeks, I’m convinced. The platform works just as promised — earn money every day and get paid quickly. It’s been great for helping me cover some small expenses, and I couldn’t be happier with how smooth everything is.",
+  "💯 Earnbuzz is a total game-changer! I’ve used several platforms before, but none of them were as reliable and fast as Earnbuzz. I get paid on time, every time. It’s easy to use, and I’ve already referred a few friends who are also enjoying the rewards. A true gem!",
+  "🔥 This is my go-to app now! The tasks are simple, and the rewards are real. I’ve earned more than I expected, and the withdrawals are lightning-fast. I’m finally able to make a steady side income without sacrificing too much time. Earnbuzz is legit, and I’m here to stay.",
+  "👏 I love that Earnbuzz doesn’t try to scam you with complicated rules or hidden fees. It’s simple and straightforward — just complete tasks, earn, and withdraw. I’ve been using it for a while now, and I’ve had no issues with payments. I highly recommend it to anyone looking for extra cash.",
+  "✅ I’ve been using Earnbuzz for over a month, and I’m thrilled with the results. The process is so easy, and the withdrawals happen instantly. I’ve made consistent earnings, and it’s helped me save up for a small vacation. I never thought I’d make money this easily online, but here I am!",
+  "😎 Earnbuzz is exactly what I’ve been looking for! It’s an effortless way to earn money daily. I love how easy it is to use, and the payments are always fast. I’ve even made some extra income on days when I didn’t expect it. Definitely recommend it for anyone who needs a simple side hustle.",
+  "💸 I’ve been using Earnbuzz for a couple of months, and I can’t believe how easy it is to make money. The interface is smooth, and the payments come through quickly. It’s a great platform for anyone looking to earn extra cash on the side. No gimmicks, just real earnings!",
+  "👌 I was looking for a way to make a little extra money without a huge time commitment, and Earnbuzz fit the bill perfectly. The platform is user-friendly, and the tasks are simple to complete. I’ve already cashed out multiple times with no issues. Highly recommend this app for a hassle-free side hustle.",
+  "🙌 What sets Earnbuzz apart is how consistent it is. I earn every day without fail, and the withdrawals happen quickly. I’ve tried other apps in the past, but none of them paid out as smoothly as Earnbuzz. It’s the perfect way to make extra cash without any headaches.",
+  "🤑 I’ve been using Earnbuzz for about a month now, and I’m really impressed. The daily faucet is a nice touch, and the tasks are easy to complete. I’ve already made a few withdrawals, and they were processed instantly. This is a solid platform for anyone looking for reliable side income.",
+  "💥 Earnbuzz is everything I hoped for in a side hustle. I’m making consistent money without putting in a ton of effort. The platform is easy to navigate, and the best part is the quick payouts. I’ve already recommended it to my friends, and they’re all seeing results too!",
+  "📝 I was skeptical about Earnbuzz at first, but after a few weeks, I’m convinced. It’s an easy and reliable way to earn extra cash. I’ve made several withdrawals, and the process is fast and simple. The best part is the low effort required — just complete tasks and get paid!",
+  "💰 I’ve been using Earnbuzz for a while now, and I couldn’t be happier with how it works. The tasks are straightforward, and the payouts are fast. I’ve been able to earn consistently without feeling overwhelmed. It’s the perfect side hustle for anyone looking for a little extra cash.",
+  "🚀 Earnbuzz has exceeded my expectations. I’ve earned steady income without needing to commit a lot of time. The tasks are simple to do, and the payouts are quick. It’s been great for covering extra expenses, and I’m excited to see how much I can continue to earn with this platform.",
+  "🎉 I love how Earnbuzz works. The platform is easy to use, and the payments are always on time. I’ve been able to earn enough to cover small bills and treat myself to a little extra each month. This is hands-down the best side hustle I’ve found, and I’m sticking with it.",
+  "📲 The best part about Earnbuzz is how transparent everything is. You know exactly what to expect, and you can easily track your earnings. I’ve never had any issues with payments, and the tasks are simple to do. It’s been a steady source of extra income, and I couldn’t ask for more.",
+  "🙌 I’ve tried several money-making platforms, but Earnbuzz is by far the best. The user interface is easy to navigate, and I love how quickly the payouts are processed. It’s helped me earn extra money without the usual frustration. If you’re looking for something reliable, this is it.",
+  "⚡ I’ve been using Earnbuzz for a few months, and it’s been a steady source of extra income. The tasks are easy to complete, and the payouts are processed quickly. It’s a great way to earn on the side without a huge time commitment. Highly recommend it to anyone looking for passive income.",
+  "⭐ I’m amazed at how quickly my earnings add up with Earnbuzz. The tasks are simple, and the payouts are fast. I’ve been able to earn enough to treat myself to small luxuries, and I’m grateful for the extra income. If you’re looking for a straightforward way to earn money, this is a solid choice.",
+  "🖥️ Earnbuzz has been such a great find for me. I earn every day without fail, and the payouts are quick and easy. It’s been a great way to earn a little extra cash without spending hours on it. I highly recommend this platform for anyone who needs extra income without the stress."
+  ];
 
-const firstNames = [ "Chinedu", "Aisha", "Tunde", "Ngozi", "Emeka", "Fatima", "Ibrahim", "Kelechi" ];
-const lastNames = [ "Okoro", "Bello", "Oladipo", "Nwankwo", "Eze", "Musa", "Lawal", "Umeh" ];
+const firstNames = [ "Chinedu", "Aisha", "Tunde", "Ngozi", "Emeka", "Fatima", "Ibrahim", "Kelechi",
+    "Seyi", "Adaobi", "Bola", "Obinna", "Zainab", "Yusuf", "Amaka", "David", "Grace",
+    "Uche", "Tope", "Nneka", "Samuel", "Maryam", "Gbenga", "Rashida", "Kingsley", "Temitope",
+    "Hadiza", "John", "Blessing", "Peter", "Linda", "Ahmed", "Funmi", "Rita", "Abdul",
+    "Chika", "Paul", "Victoria", "Halima", "Ifeanyi", "Sarah", "Joseph", "Joy", "Musa",
+    "Bukky", "Stephen", "Aminat", "Henry", "Femi", "Micheal", "Modupe", "Yemisi", "Titi",
+    "Chijioke", "Oluwaseun", "Durojaiye", "Fatimah", "Ademola", "Ifeoluwa", "Hassan", "Aderemi",
+    "Idris", "Ekong", "Ivy", "Uko", "Eyo", "Abasiama", "Mfon", "Mbakara", "Nkechi",
+    "Idorenyin", "Martha", "Ita", "Akpan", "Essien", "Obong", "Ikot", "Inyang", "Ntia",
+    "Akpabio", "Etim", "Inyene", "Ndiana", "Udoh", "Akanimoh", "Udo", "Ukpong" ];
+const lastNames = [ "Okoro", "Bello", "Oladipo", "Nwankwo", "Eze", "Musa", "Lawal", "Umeh", "Bakare",
+    "Okafor", "Adeyemi", "Mohammed", "Onyeka", "Ibrahim", "Ogunleye", "Balogun",
+    "Chukwu", "Usman", "Abiola", "Okonkwo", "Aliyu", "Ogundele", "Danladi", "Ogbonna",
+    "Salami", "Olumide", "Obi", "Akinwale", "Suleiman", "Ekwueme", "Ayodele", "Garba",
+    "Nwachukwu", "Anyanwu", "Yahaya", "Idowu", "Ezra", "Mustapha", "Iroko", "Ajayi",
+    "Adebayo", "Ogundipe", "Nuhu", "Bamgbose", "Ikenna", "Osagie", "Akinyemi", "Chisom",
+    "Oladele", "Adeleke", "Fashola", "Taiwo", "Tiwatope", "Onyebuchi", "Ikechukwu",
+    "Nnaji", "Ogunbiyi", "Sule", "Muhammad", "Alabi", "Oloyede", "Etim", "Bassey",
+    "Otu", "Akpabio", "Ubong" ];
 
 function getRandomNigerianName() {
   const first = firstNames[Math.floor(Math.random() * firstNames.length)];
