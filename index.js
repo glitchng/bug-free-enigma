@@ -13,7 +13,6 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('public'));
 
-// === Variables ===
 let broadcasting = false;
 let broadcastInterval = null;
 let messageCount = 0;
@@ -106,35 +105,41 @@ bot.onText(/\/stop/, (msg) => {
 // === Web Dashboard ===
 app.get('/', (req, res) => {
   res.send(`
-    <html lang="en" class="dark">
-      <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Earnbuzz Review Broadcaster</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-      </head>
+    <html>
+      <head><title>Earnbuzz Broadcast Dashboard</title></head>
       <body class="bg-gray-900 text-white">
-        <div class="container mx-auto px-4 py-8">
-          <div class="flex items-center mb-6">
-            <img src="https://raw.githubusercontent.com/glitchng/bug-free-enigma/main/earn.jpg" alt="Earnbuzz Logo" class="w-24 h-24 object-cover rounded-full mr-4" />
-            <h1 class="text-4xl font-bold">Earnbuzz Review Broadcaster</h1>
-          </div>
-          
-          <p>Status: <b>${broadcasting ? '🟢 Running' : '🔴 Stopped'}</b></p>
-          <p>Messages sent: ${messageCount}</p>
-          
-          <div class="mt-6">
-            <form method="POST" action="/start">
-              <button type="submit" class="bg-green-500 text-white p-3 rounded-lg shadow-md hover:bg-green-600">▶️ Start Broadcasting</button>
-            </form>
-            <form method="POST" action="/stop" class="mt-4">
-              <button type="submit" class="bg-red-500 text-white p-3 rounded-lg shadow-md hover:bg-red-600">⛔ Stop Broadcasting</button>
-            </form>
-          </div>
-          
-          <h3 class="mt-8 text-xl">Recent Logs</h3>
-          <pre class="bg-gray-800 p-4 rounded-lg mt-2">${logs.join('\n')}</pre>
+        <div class="container mx-auto p-6">
+          <header class="text-center">
+            <img class="w-24 h-24 rounded-full mx-auto" src="https://github.com/glitchng/bug-free-enigma/blob/main/earn.jpg?raw=true" alt="Earnbuzz Logo" />
+            <h1 class="text-3xl font-bold mt-4">Earnbuzz Review Broadcaster</h1>
+          </header>
+          <section class="mt-6 text-center">
+            <p>Status: <span id="status" class="font-semibold text-green-500">🟢 Running</span></p>
+            <p>Messages Sent: <span id="message-count" class="font-semibold">0</span></p>
+            <div class="mt-4">
+              <button class="bg-blue-500 text-white px-6 py-2 rounded-full mx-2" id="start-button">▶️ Start Broadcasting</button>
+              <button class="bg-red-500 text-white px-6 py-2 rounded-full mx-2" id="stop-button">⛔ Stop Broadcasting</button>
+            </div>
+          </section>
+          <section class="mt-6">
+            <h3 class="text-xl font-semibold">Recent Logs</h3>
+            <pre id="logs" class="text-sm bg-gray-800 p-4 mt-2 rounded-lg"></pre>
+          </section>
         </div>
+        <script>
+          // Example of starting and stopping broadcasting
+          const startButton = document.getElementById('start-button');
+          const stopButton = document.getElementById('stop-button');
+
+          startButton.addEventListener('click', () => {
+            document.getElementById('status').textContent = '🟢 Broadcasting...';
+            document.getElementById('message-count').textContent = 0;
+          });
+
+          stopButton.addEventListener('click', () => {
+            document.getElementById('status').textContent = '🔴 Stopped';
+          });
+        </script>
       </body>
     </html>
   `);
