@@ -115,7 +115,7 @@ app.get('/', (req, res) => {
         <div class="max-w-4xl mx-auto bg-gray-800 p-6 rounded-lg shadow-lg">
           <!-- Logo -->
           <div class="flex justify-center mb-8">
-            <img src="https://i.imgur.com/a/2hUkPwV" alt="Earnbuzz Logo" class="w-24 h-24 object-cover rounded-full" />
+           <img src="https://i.imgur.com/Y2bzF7V.jpg" alt="Earnbuzz Logo" class="w-24 h-24 object-cover rounded-full" />
           </div>
 
           <h1 class="text-4xl font-extrabold text-center text-indigo-600 mb-8">📡 Earnbuzz Review Broadcaster</h1>
