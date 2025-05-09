@@ -79,7 +79,7 @@ const reviews = [
   "🙌 I’ve tried several money-making platforms, but Earnbuzz is by far the best. The user interface is easy to navigate, and I love how quickly the payouts are processed. It’s helped me earn extra money without the usual frustration. If you’re looking for something reliable, this is it.",
   "⚡ I’ve been using Earnbuzz for a few months, and it’s been a steady source of extra income. The tasks are easy to complete, and the payouts are processed quickly. It’s a great way to earn on the side without a huge time commitment. Highly recommend it to anyone looking for passive income.",
   "⭐ I’m amazed at how quickly my earnings add up with Earnbuzz. The tasks are simple, and the payouts are fast. I’ve been able to earn enough to treat myself to small luxuries, and I’m grateful for the extra income. If you’re looking for a straightforward way to earn money, this is a solid choice.",
-  "🖥️ Earnbuzz has been such a great find for me. I earn every day without fail, and the payouts are quick and easy. It’s been a great way to earn a little extra cash without spending hours on it. I highly recommend this platform for anyone who needs extra income without the stress."
+  "🖥️ Earnbuzz has been such a great find for me. I earn every day without fail, and the payouts are quick and easy. It’s been a great way to earn a little extra cash without spending hours on it. I highly recommend this platform for anyone who needs extra income without the stress.",
   "🔁 I love that withdrawals are processed fast. No delays, no lies. What you see is what you get.",
   "😮 I’ve tried ponzi apps that promised too much. This one is simple, and it actually delivers.",
   "🌍 I shared my link on WhatsApp groups and boom! ₦12,500 earned in 2 days. Referrals pay!",
@@ -138,7 +138,7 @@ const reviews = [
   "🥗 I bought my girlfriend lunch with my tap money. Now she’s tapping too 😁",
   "📱 Low-spec phones can still use it. My grandma’s itel runs it fine.",
   "🏁 Finally found an app that pays, not plays. Thank you!"
-    ];
+  ];
 
 const firstNames = [
   "Chinedu", "Aisha", "Tunde", "Ngozi", "Emeka", "Fatima", "Ibrahim", "Kelechi",
