@@ -39,7 +39,7 @@ const reviews = [
   
   "🙌 I started using Earnbuzz just to test it out, but now it’s a regular part of my income. I don’t have to do anything complicated — just log in, do a few things, and I get rewarded. What makes it stand out is the consistency. It doesn’t suddenly stop working or make you jump through hoops to get your money. I’ve referred a few friends too, and they’re all seeing results. Whether you’re a student, a parent, or just someone trying to make ends meet, I think Earnbuzz is genuinely worth your time.",
   
-  "🤑 I’m not the type to write reviews, but Earnbuzz honestly deserves it. I’ve been burned by too many fake platforms in the past, so when I found something that actually pays, I had to speak up. It’s helped me earn on the side without investing anything upfront. The user interface is super smooth, and I’ve never had a delay with withdrawals. I even reached out to support once, and they were polite and quick to resolve my issue. That says a lot. This platform has genuinely helped me out."
+  "🤑 I’m not the type to write reviews, but Earnbuzz honestly deserves it. I’ve been burned by too many fake platforms in the past, so when I found something that actually pays, I had to speak up. It’s helped me earn on the side without investing anything upfront. The user interface is super smooth, and I’ve never had a delay with withdrawals. I even reached out to support once, and they were polite and quick to resolve my issue. That says a lot. This platform has genuinely helped me out.",
   "🌟 This app is amazing! I’ve earned so much in just a week.",
   "💯 Legit and super easy to use. Highly recommend!",
   "🔥 Just got my first payment today. Thanks guys!",
