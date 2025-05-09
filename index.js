@@ -80,134 +80,147 @@ const reviews = [
   "⚡ I’ve been using Earnbuzz for a few months, and it’s been a steady source of extra income. The tasks are easy to complete, and the payouts are processed quickly. It’s a great way to earn on the side without a huge time commitment. Highly recommend it to anyone looking for passive income.",
   "⭐ I’m amazed at how quickly my earnings add up with Earnbuzz. The tasks are simple, and the payouts are fast. I’ve been able to earn enough to treat myself to small luxuries, and I’m grateful for the extra income. If you’re looking for a straightforward way to earn money, this is a solid choice.",
   "🖥️ Earnbuzz has been such a great find for me. I earn every day without fail, and the payouts are quick and easy. It’s been a great way to earn a little extra cash without spending hours on it. I highly recommend this platform for anyone who needs extra income without the stress."
-  ];
+  "🔁 I love that withdrawals are processed fast. No delays, no lies. What you see is what you get.",
+  "😮 I’ve tried ponzi apps that promised too much. This one is simple, and it actually delivers.",
+  "🌍 I shared my link on WhatsApp groups and boom! ₦12,500 earned in 2 days. Referrals pay!",
+  "📊 I now track my tap earnings like a real hustle. I even reinvested into data to refer more.",
+  "💬 My friend told me about Earnbuzz and now I owe her lunch. This app really works.",
+  "🏆 I topped the referral board in my area last week. Proud moment!",
+  "🧠 Whoever built this, may God bless your brain. You've helped students like me a lot.",
+  "💡 The design is so simple that even my grandma taps daily now.",
+  "😆 I never thought making money from tapping was real until I saw ₦9k hit my wallet.",
+  "🗣️ I've become an unofficial Earnbuzz ambassador. Everyone in my hostel uses it now.",
+  "📦 Used my earnings to buy foodstuffs for the week. Every tap counts.",
+  "🥳 It's always fun seeing my balance go up after tapping. Even better when a referral joins.",
+  "📲 It doesn’t drain data like other apps. That’s a big win for me.",
+  "👨‍👩‍👧 My whole family is now on Earnbuzz. Group tapping every evening 😂",
+  "🎓 I used to do survey apps but they take forever. This one is direct to the point.",
+  "🤓 I’ve been tracking my tap history and the math adds up. It's real, not hype.",
+  "📍 I live in Jos and got paid without any issue. This is not Lagos-only.",
+  "💼 I tell all my NYSC camp mates about it. They need this side cash badly.",
+  "🏡 My landlord saw me tapping and now he’s on it too lol",
+  "😤 Missed a full day of tapping and regretted it. It’s that addictive and rewarding.",
+  "💪 I'm working toward ₦50k. With my referrals rising, I know I’ll hit it soon.",
+  "🚀 This app is going viral for good reason. Simple, fast payouts, real earnings.",
+  "🧾 The withdrawal receipts look clean. I use them to show proof to friends.",
+  "🕐 I just tap 3–4 times a day, and I still get paid. Passive income for real.",
+  "👩🏾‍💼 I introduced it to my colleagues and now we do a tap challenge during lunch breaks.",
+  "🏦 Saw ₦15,000 in my Kuda account thanks to Earnbuzz. It’s not magic, it’s consistent effort.",
+  "📣 If you're still doubting this app, just try it. I did, and I’m glad I did.",
+  "👶 I’m saving my earnings for baby diapers. Thanks for this small but mighty source of funds.",
+  "🎯 It keeps me focused daily. I wake up and tap before breakfast.",
+  "📚 I paid part of my tuition with my tap + referral money. This app is saving lives.",
+  "🛍️ Bought a new bag from my tap income. Who would've thought?",
+  "🚪 I quit another app for this. No ads, no tricks. Just tap and cash out.",
+  "🕊️ May whoever made this app never lack. You've created opportunities for us.",
+  "📈 I teach my students how to earn from it legally. Tapping is now a side lesson.",
+  "🎛️ Clean interface, clear goals, real money. Five stars from me.",
+  "💃 My roommate and I celebrate each referral like it’s our birthday lol.",
+  "🍲 I can afford 2 extra meals a day now. No more skipping lunch.",
+  "🌅 Evenings are for chilling and tapping. It's like a ritual now.",
+  "📞 I call all my friends who haven’t joined yet and give them my referral link immediately.",
+  "🧾 The receipts look official, so I know it’s serious business.",
+  "🤩 It’s crazy that tapping can make you more than some part-time jobs.","💅 Used my tap earnings for a salon session. Thank you for the soft life!",
+  "📉 No stress, no losses. Unlike crypto apps, I never fear opening this one.",
+  "🧱 Brick by brick, tap by tap. I’m building small wealth here.",
+  "🏕️ I introduced it at a youth camp and we all signed up that day.",
+  "🥳 ₦10k in a week! I couldn’t believe it. This thing is real!",
+  "🍀 Lucky I found this early. It's only going to get better.",
+  "🛒 I shop for small groceries now with my tap cash. It’s become part of my budget.",
+  "📤 I sent money to my mum last week from my tap balance. She cried 🥹",
+  "🚿 Tapping in the bathroom now. No time to waste 😆",
+  "📚 I'm documenting my tap journey like a diary. Maybe I’ll blog it one day.",
+  "🧭 Even in hard times, this gives direction. Thank you guys so much!",
+  "🎮 I’m a gamer, and this app funds my data for streaming. Win-win.",
+  "🧳 Traveled last week and still tapped daily. It works everywhere!",
+  "🧽 While cleaning, I tap. While watching movies, I tap. I’m always earning!",
+  "🌍 This is the most legit side hustle for Nigerians right now. Trust me.",
+  "🥗 I bought my girlfriend lunch with my tap money. Now she’s tapping too 😁",
+  "📱 Low-spec phones can still use it. My grandma’s itel runs it fine.",
+  "🏁 Finally found an app that pays, not plays. Thank you!"
+    ];
 
-const firstNames = [ "Chinedu", "Aisha", "Tunde", "Ngozi", "Emeka", "Fatima", "Ibrahim", "Kelechi",
-    "Seyi", "Adaobi", "Bola", "Obinna", "Zainab", "Yusuf", "Amaka", "David", "Grace",
-    "Uche", "Tope", "Nneka", "Samuel", "Maryam", "Gbenga", "Rashida", "Kingsley", "Temitope",
-    "Hadiza", "John", "Blessing", "Peter", "Linda", "Ahmed", "Funmi", "Rita", "Abdul",
-    "Chika", "Paul", "Victoria", "Halima", "Ifeanyi", "Sarah", "Joseph", "Joy", "Musa",
-    "Bukky", "Stephen", "Aminat", "Henry", "Femi", "Micheal", "Modupe", "Yemisi", "Titi",
-    "Chijioke", "Oluwaseun", "Durojaiye", "Fatimah", "Ademola", "Ifeoluwa", "Hassan", "Aderemi",
-    "Idris", "Ekong", "Ivy", "Uko", "Eyo", "Abasiama", "Mfon", "Mbakara", "Nkechi",
-    "Idorenyin", "Martha", "Ita", "Akpan", "Essien", "Obong", "Ikot", "Inyang", "Ntia",
-    "Akpabio", "Etim", "Inyene", "Ndiana", "Udoh", "Akanimoh", "Udo", "Ukpong" ];
-const lastNames = [ "Okoro", "Bello", "Oladipo", "Nwankwo", "Eze", "Musa", "Lawal", "Umeh", "Bakare",
-    "Okafor", "Adeyemi", "Mohammed", "Onyeka", "Ibrahim", "Ogunleye", "Balogun",
-    "Chukwu", "Usman", "Abiola", "Okonkwo", "Aliyu", "Ogundele", "Danladi", "Ogbonna",
-    "Salami", "Olumide", "Obi", "Akinwale", "Suleiman", "Ekwueme", "Ayodele", "Garba",
-    "Nwachukwu", "Anyanwu", "Yahaya", "Idowu", "Ezra", "Mustapha", "Iroko", "Ajayi",
-    "Adebayo", "Ogundipe", "Nuhu", "Bamgbose", "Ikenna", "Osagie", "Akinyemi", "Chisom",
-    "Oladele", "Adeleke", "Fashola", "Taiwo", "Tiwatope", "Onyebuchi", "Ikechukwu",
-    "Nnaji", "Ogunbiyi", "Sule", "Muhammad", "Alabi", "Oloyede", "Etim", "Bassey",
-    "Otu", "Akpabio", "Ubong" ];
+const firstNames = [
+  "Chinedu", "Aisha", "Tunde", "Ngozi", "Emeka", "Fatima", "Ibrahim", "Kelechi",
+  "Seyi", "Adaobi", "Bola", "Obinna", "Zainab", "Yusuf", "Amaka", "David", "Grace",
+  "Uche", "Tope", "Nneka", "Samuel", "Maryam", "Gbenga", "Rashida", "Kingsley", "Temitope",
+  "Hadiza", "John", "Blessing", "Peter", "Linda", "Ahmed", "Funmi", "Rita", "Abdul",
+  "Chika", "Paul", "Victoria", "Halima", "Ifeanyi", "Sarah", "Joseph", "Joy", "Musa",
+  "Bukky", "Stephen", "Aminat", "Henry", "Femi", "Micheal", "Modupe", "Yemisi", "Titi",
+  "Chijioke", "Oluwaseun", "Durojaiye", "Fatimah", "Ademola", "Ifeoluwa", "Hassan", "Aderemi",
+  "Idris", "Ekong", "Ivy", "Uko", "Eyo", "Abasiama", "Mfon", "Mbakara", "Nkechi",
+  "Idorenyin", "Martha", "Ita", "Akpan", "Essien", "Obong", "Ikot", "Inyang", "Ntia",
+  "Akpabio", "Etim", "Inyene", "Ndiana", "Udoh", "Akanimoh", "Udo", "Ukpong"
+];
+
+const lastNames = [
+  "Okoro", "Bello", "Oladipo", "Nwankwo", "Eze", "Musa", "Lawal", "Umeh", "Bakare",
+  "Okafor", "Adeyemi", "Mohammed", "Onyeka", "Ibrahim", "Ogunleye", "Balogun",
+  "Chukwu", "Usman", "Abiola", "Okonkwo", "Aliyu", "Ogundele", "Danladi", "Ogbonna",
+  "Salami", "Olumide", "Obi", "Akinwale", "Suleiman", "Ekwueme", "Ayodele", "Garba",
+  "Nwachukwu", "Anyanwu", "Yahaya", "Idowu", "Ezra", "Mustapha", "Iroko", "Ajayi",
+  "Adebayo", "Ogundipe", "Nuhu", "Bamgbose", "Ikenna", "Osagie", "Akinyemi", "Chisom",
+  "Oladele", "Adeleke", "Fashola", "Taiwo", "Tiwatope", "Onyebuchi", "Ikechukwu",
+  "Nnaji", "Ogunbiyi", "Sule", "Muhammad", "Alabi", "Oloyede", "Etim", "Bassey",
+  "Otu", "Akpabio", "Ubong"
+];
 
 function getRandomNigerianName() {
   const first = firstNames[Math.floor(Math.random() * firstNames.length)];
   const last = lastNames[Math.floor(Math.random() * lastNames.length)];
-  return `${first} ${last}`;
+  const maskedLast = last.slice(0, 2) + '***';
+  return `${first} ${maskedLast}`;
 }
 
 function sendReviewMessage() {
   const review = reviews[Math.floor(Math.random() * reviews.length)];
   const name = getRandomNigerianName();
-  const message = `${review}\n—from *${name}*`;
-
-  bot.sendMessage(CHANNEL_ID, message, { parse_mode: "Markdown" });
+  const message = `👤 ${name}\n\n${review}`;
+  bot.sendMessage(CHANNEL_ID, message);
+  logs.push(`[${new Date().toISOString()}] ${name}`);
   messageCount++;
-  logs.unshift(`[${new Date().toLocaleTimeString()}] Sent: ${message}`);
-  if (logs.length > 20) logs.pop(); // Keep log short
 }
 
-function startBroadcasting() {
-  if (broadcasting) return;
-  broadcasting = true;
-  messageCount = 0;
-  broadcastInterval = setInterval(() => {
-    if (!broadcasting || messageCount >= 500) {
-      stopBroadcasting();
-      return;
-    }
-    sendReviewMessage();
-  }, 60000); // 1 minute
-}
-
-function stopBroadcasting() {
-  broadcasting = false;
-  if (broadcastInterval) {
-    clearInterval(broadcastInterval);
-    broadcastInterval = null;
-  }
-}
-
-// === Telegram Bot Admin Commands ===
+// === Telegram Bot Commands ===
 bot.onText(/\/start/, (msg) => {
-  if (msg.chat.id == ADMIN_ID) {
-    bot.sendMessage(msg.chat.id, "✅ Review broadcasting started.");
-    startBroadcasting();
-  } else {
-    bot.sendMessage(msg.chat.id, "❌ You are not authorized.");
+  if (msg.from.id === ADMIN_ID) {
+    bot.sendMessage(msg.chat.id, `✅ Welcome Admin!\n\nUse /broadcast_on to start broadcasting reviews.\nUse /broadcast_off to stop.\nUse /logs to see broadcast logs.`);
   }
 });
 
-bot.onText(/\/stop/, (msg) => {
-  if (msg.chat.id == ADMIN_ID) {
-    bot.sendMessage(msg.chat.id, "🛑 Review broadcasting stopped.");
-    stopBroadcasting();
+bot.onText(/\/broadcast_on/, (msg) => {
+  if (msg.from.id !== ADMIN_ID) return;
+  if (!broadcasting) {
+    broadcasting = true;
+    messageCount = 0;
+    logs.length = 0;
+    broadcastInterval = setInterval(sendReviewMessage, 60 * 1000); // Every 1 minute
+    bot.sendMessage(msg.chat.id, `🚀 Broadcasting started! Sending reviews every 1 minute.`);
   } else {
-    bot.sendMessage(msg.chat.id, "❌ You are not authorized.");
+    bot.sendMessage(msg.chat.id, `ℹ️ Broadcasting is already active.`);
   }
 });
 
-// === Web Dashboard ===
-app.get('/', (req, res) => {
-  res.send(`
-    <html>
-      <head>
-        <title>Earnbuzz Broadcast Dashboard</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-      </head>
-      <body id="body" class="bg-gray-900 text-gray-200 font-sans p-6 transition-all">
-        <div class="max-w-4xl mx-auto bg-gray-800 p-6 rounded-lg shadow-lg">
-          <!-- Logo -->
-          <div class="flex justify-center mb-8">
-          <img src="https://raw.githubusercontent.com/glitchng/bug-free-enigma/main/earn.jpg" alt="Earnbuzz Logo" class="w-24 h-24 object-cover rounded-full mr-4" />
-          </div>
-
-          <h1 class="text-4xl font-extrabold text-center text-indigo-600 mb-8">📡 Earnbuzz Review Broadcaster</h1>
-          <div class="text-center mb-6">
-            <p class="text-lg ${broadcasting ? 'text-green-500' : 'text-red-500'}">Status: <b class="font-semibold">${broadcasting ? '🟢 Running' : '🔴 Stopped'}</b></p>
-            <p class="mb-4 text-xl">Messages Sent: <span class="text-2xl font-bold text-gray-100">${messageCount}</span></p>
-            <div class="space-x-4">
-              <form method="POST" action="/start" class="inline-block">
-                <button type="submit" class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 transition-all">▶️ Start Broadcasting</button>
-              </form>
-              <form method="POST" action="/stop" class="inline-block">
-                <button type="submit" class="px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 transition-all">⛔ Stop Broadcasting</button>
-              </form>
-            </div>
-          </div>
-          
-          <h3 class="text-2xl font-bold mb-2 text-center">Recent Logs</h3>
-          <pre class="bg-gray-800 text-white p-4 rounded-md mt-4 max-h-96 overflow-y-auto">${logs.join('\n')}</pre>
-        </div>
-      </body>
-    </html>
-  `);
+bot.onText(/\/broadcast_off/, (msg) => {
+  if (msg.from.id !== ADMIN_ID) return;
+  if (broadcasting) {
+    broadcasting = false;
+    clearInterval(broadcastInterval);
+    bot.sendMessage(msg.chat.id, `🛑 Broadcasting stopped after sending ${messageCount} messages.`);
+  } else {
+    bot.sendMessage(msg.chat.id, `ℹ️ Broadcasting is already off.`);
+  }
 });
 
-app.post('/start', (req, res) => {
-  startBroadcasting();
-  res.redirect('/');
+bot.onText(/\/logs/, (msg) => {
+  if (msg.from.id !== ADMIN_ID) return;
+  const logText = logs.length ? logs.join('\n') : 'No logs yet.';
+  bot.sendMessage(msg.chat.id, `📜 Broadcast Logs:\n\n${logText}`);
 });
 
-app.post('/stop', (req, res) => {
-  stopBroadcasting();
-  res.redirect('/');
-});
-
-// === Start Server ===
+// === Server Setup ===
+const server = http.createServer(app);
 const PORT = process.env.PORT || 3000;
-http.createServer(app).listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
